@@ -1,26 +1,49 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-accent-green: var(--accent-green);
+  --color-danger-red: var(--danger-red);
+  --color-neutral-gray: var(--neutral-gray);
+  --color-bg-base: var(--bg-base);
+  --color-bg-card: var(--bg-card);
+  --color-border: var(--border);
+  --color-highlight: var(--highlight);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --primary: #1d2c3a;
+  --accent-green: #3ba66b;
+  --danger-red: #e84855;
+  --neutral-gray: #7a8b9c;
+  --bg-base: #faf9f8;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+  --highlight: #fdf6ec;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.143 0.004 277.6169575468132);
+}
+
+.dark {
+  --primary: #1d2c3a;
+  --accent-green: #3ba66b;
+  --danger-red: #e84855;
+  --neutral-gray: #7a8b9c;
+  --bg-base: #0f172a;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --highlight: #1e293b;
+  --background: var(--primary);
+  --foreground: oklch(1 0 0);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
