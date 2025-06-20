@@ -14,6 +14,11 @@
   --color-highlight: var(--highlight);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius: 0.5rem;
 }
 
 :root {
@@ -44,6 +49,16 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-[family-name:var(--font-inter)];
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-foreground hover:bg-neutral-gray/30 transition-colors duration-400 cursor-pointer p-2 rounded-md;
+  }
+
+  .separator {
+    @apply border-b border-neutral-gray/30 my-2;
   }
 }
